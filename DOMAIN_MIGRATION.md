@@ -1,4 +1,4 @@
-# Domain Migration Guide: routeshare.vivienne.work → routeshare.ielush.com
+# Setup Guide: routeshare.vivienne.work
 
 ## What Changed
 
@@ -14,9 +14,10 @@ The "Generate Share Link" button now displays correctly based on the route mode:
 - Clicking "Generate Route" generates the auto route first
 - Then the "Generate Share Link" button becomes available
 
-### 2. Domain References Updated
+### 2. Domain References
 - **OG Link Generation:** Uses `NEXT_PUBLIC_SITE_URL` environment variable
 - **Share Links:** Built with `${window.location.origin}/route/${shareId}`
+- **Current Domain:** `routeshare.vivienne.work`
 
 ## Setup for Deployment
 
@@ -32,8 +33,8 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your_key
 # Mapbox
 NEXT_PUBLIC_MAPBOX_TOKEN=your_token
 
-# New Domain for OG Previews
-NEXT_PUBLIC_SITE_URL=https://routeshare.ielush.com
+# Site Domain for OG Previews
+NEXT_PUBLIC_SITE_URL=https://routeshare.vivienne.work
 ```
 
 ### Vercel/Production Deployment
@@ -42,7 +43,7 @@ Update these environment variables in your deployment platform:
 
 1. **Vercel Dashboard:**
    - Go to Settings → Environment Variables
-   - Update or add: `NEXT_PUBLIC_SITE_URL=https://routeshare.ielush.com`
+   - Update or add: `NEXT_PUBLIC_SITE_URL=https://routeshare.vivienne.work`
    
 2. **Domain Configuration:**
    - Point DNS for `routeshare.ielush.com` to your Vercel deployment

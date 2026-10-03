@@ -5,7 +5,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const { id } = await params;
 
   // Get the base URL for the application (ensure this is set in Vercel/Env)
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://routeshare.ielush.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://routeshare.vivienne.work";
   const routeUrl = `${baseUrl}/route/${id}`;
 
   let ogImageUrl = `${baseUrl}/default-og.svg`; // Fallback image
