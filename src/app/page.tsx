@@ -254,8 +254,8 @@ export default function Home() {
       )}
 
 
-      {/* Generate button / Share link */}
-      {!saved && (!hasRoute && routeMode === "automatic" ? null : (
+      {/* Generate Share Link button */}
+      {!saved && routeMode !== "automatic" && (
         <button
           onClick={handleSaveRoute}
           disabled={isSaving || !hasRoute}
@@ -268,7 +268,23 @@ export default function Home() {
           )}
           {isSaving ? "Saving…" : "Generate Share Link"}
         </button>
-      ))}
+      )}
+
+      {/* Generate Share Link button (only after route generated in Automatic mode) */}
+      {!saved && routeMode === "automatic" && hasRoute && (
+        <button
+          onClick={handleSaveRoute}
+          disabled={isSaving}
+          className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-emerald-500 text-white font-bold text-base transition-all shadow-2xl shadow-emerald-500/25"
+        >
+          {isSaving ? (
+            <Loader2 className="w-5 h-5 animate-spin" />
+          ) : (
+            <Share2 className="w-6 h-6" />
+          )}
+          {isSaving ? "Saving…" : "Generate Share Link"}
+        </button>
+      )}
       
       {saved && (
         <div className="flex flex-col gap-3 bg-neutral-950/90 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-2xl">
